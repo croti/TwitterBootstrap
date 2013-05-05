@@ -117,7 +117,8 @@ class BootstrapFormHelper extends FormHelper {
 		$options['legend'] = false;
 		$options['separator'] = "\n";
 		$out = parent::radio($fieldName, $radioOptions, $options);
-		$out = $this->_restructureLabel($out, array('class' => 'radio'));
+        $class = !empty($options['inline']) && $options['inline'] == true ? 'radio inline' : 'radio';
+		$out = $this->_restructureLabel($out, array('class' => $class));
 		return $out;
 	}
 
